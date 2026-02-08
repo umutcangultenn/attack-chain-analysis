@@ -1,0 +1,41 @@
+{
+    "@programName": "OWASP ZAP",
+    "@version": "2.14.0",
+    "@generated": "Fri, 19 Jan 2024 15:00:00",
+    "site": [
+        {
+            "@name": "http://target-site.com",
+            "@host": "target-site.com",
+            "@port": "80",
+            "@ssl": "false",
+            "alerts": [
+                {
+                    "pluginid": "40018",
+                    "alertRef": "40018",
+                    "alert": "SQL Injection",
+                    "name": "SQL Injection",
+                    "riskcode": "3",
+                    "confidence": "3",
+                    "riskdesc": "High (High)",
+                    "desc": "<p>SQL Injection may be possible.</p>",
+                    "instances": [
+                        {
+                            "uri": "http://target-site.com/search.php?q=test",
+                            "method": "GET",
+                            "param": "q",
+                            "attack": "' OR '1'='1",
+                            "evidence": "You have an error in your SQL syntax"
+                        }
+                    ],
+                    "count": "1",
+                    "solution": "<p>Do not trust client side input, even if there is client side validation...</p>",
+                    "otherinfo": "",
+                    "reference": "",
+                    "cweid": "89",
+                    "wascid": "19",
+                    "sourceid": "1"
+                }
+            ]
+        }
+    ]
+}

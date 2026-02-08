@@ -1,0 +1,65 @@
+{
+    "@programName": "OWASP ZAP",
+    "@version": "2.14.0",
+    "@generated": "Thu, 18 Jan 2024 10:30:00",
+    "site": [
+        {
+            "@name": "http://target-site.com",
+            "@host": "target-site.com",
+            "@port": "80",
+            "@ssl": "false",
+            "alerts": [
+                {
+                    "pluginid": "40018",
+                    "alertRef": "40018",
+                    "alert": "SQL Injection",
+                    "name": "SQL Injection",
+                    "riskcode": "3",
+                    "confidence": "2",
+                    "riskdesc": "High (Medium)",
+                    "desc": "<p>SQL Injection found...</p>",
+                    "instances": [
+                        {
+                            "uri": "http://target-site.com/products.php?id=1",
+                            "method": "GET",
+                            "param": "id",
+                            "attack": "1' OR '1'='1",
+                            "evidence": "SQL Syntax Error"
+                        }
+                    ],
+                    "count": "1",
+                    "solution": "<p>Use prepared statements...</p>",
+                    "otherinfo": "",
+                    "reference": "",
+                    "cweid": "89",
+                    "wascid": "19",
+                    "sourceid": "1"
+                },
+                {
+                    "pluginid": "10021",
+                    "alertRef": "10021",
+                    "alert": "X-Content-Type-Options Header Missing",
+                    "name": "X-Content-Type-Options Header Missing",
+                    "riskcode": "1",
+                    "confidence": "2",
+                    "riskdesc": "Low (Medium)",
+                    "desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'...</p>",
+                    "instances": [
+                        {
+                            "uri": "http://target-site.com/",
+                            "method": "GET",
+                            "param": ""
+                        }
+                    ],
+                    "count": "1",
+                    "solution": "<p>Ensure that the application/web server sets the Content-Type header appropriately...</p>",
+                    "otherinfo": "",
+                    "reference": "",
+                    "cweid": "16",
+                    "wascid": "15",
+                    "sourceid": "1"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# MacOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Project specific
+backend/sample_data/scenario_*/
+!backend/sample_data/scenario_2/  # Keep scenario 2 as demo data if desired, or ignore all
+!backend/sample_data/scenario_3/
+
+# Logs
+*.log

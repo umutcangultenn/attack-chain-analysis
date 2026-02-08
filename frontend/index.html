@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attack Chain Analysis System</title>
+    <link rel="stylesheet" href="css/style.css?v=2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Attack Chain AI</h1>
+            <p style="color: var(--text-secondary); font-size: 1.2rem;">Next-Gen Security Incident Response & Root Cause
+                Analysis</p>
+        </header>
+
+        <main>
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <!-- ZAP Report Card -->
+                <div class="card">
+                    <h2><i class="fas fa-bug"></i> Vulnerability Reports</h2>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Upload OWASP ZAP
+                        scans (JSON)</p>
+                    <input type="file" id="zapFile" accept=".json">
+                    <button onclick="uploadZapReport()" class="btn-primary">
+                        <i class="fas fa-cloud-upload-alt"></i> Upload Report
+                    </button>
+                    <div id="zapStatus" class="status"></div>
+                </div>
+
+                <!-- Logs Card -->
+                <div class="card">
+                    <h2><i class="fas fa-list-alt"></i> System Logs</h2>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Server Access &
+                        Auth logs</p>
+                    <input type="file" id="logFile" accept=".log,.txt">
+                    <select id="logType">
+                        <option value="access">Access Log</option>
+                        <option value="auth">Auth Log</option>
+                    </select>
+                    <button onclick="uploadLog()" class="btn-primary">
+                        <i class="fas fa-cloud-upload-alt"></i> Upload Log
+                    </button>
+                    <div id="logStatus" class="status"></div>
+                </div>
+
+                <!-- Analysis Card -->
+                <div class="card analysis-card">
+                    <h2><i class="fas fa-brain"></i> AI Analysis Engine</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem; text-align: center;">Correlate isolated
+                        findings into sophisticated attack chains.</p>
+                    <button onclick="runAnalysis()" class="btn-danger">
+                        <i class="fas fa-bolt"></i> Start Analysis
+                    </button>
+                    <div style="text-align: center; margin: 1rem 0; color: var(--text-secondary); font-size: 0.8rem;">OR
+                    </div>
+                    <button onclick="loadDemoData()" class="btn-primary"
+                        style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">
+                        <i class="fas fa-play"></i> Load Demo Scenario
+                    </button>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section id="resultsSection" class="results-section hidden">
+                <h2 style="font-size: 2rem; margin-bottom: 2rem;">Detected Scenarios</h2>
+                <div id="scenariosList" class="scenarios-grid"></div>
+            </section>
+
+            <!-- Modal for Details -->
+            <div id="scenarioModal" class="modal">
+                <div class="modal-content">
+                    <div class="close" onclick="closeModal()"><i class="fas fa-times"></i></div>
+                    <h2 id="modalTitle" style="font-size: 2rem; margin-bottom: 0.5rem;">Scenario Details</h2>
+                    <div id="modalBody"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
