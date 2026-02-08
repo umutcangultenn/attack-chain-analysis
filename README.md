@@ -34,8 +34,8 @@ Bu sistem, **OWASP ZAP** gibi tarama araçlarının çıktılarını, sunucu **A
 
 ### Adım 1: Depoyu Klonlayın
 ```bash
-git clone https://github.com/username/attack-chain.git
-cd attack-chain
+git clone https://github.com/umutcangultenn/attack-chain-analysis.git
+cd attack-chain-analysis
 ```
 
 ### Adım 2: Backend'i Başlatın
